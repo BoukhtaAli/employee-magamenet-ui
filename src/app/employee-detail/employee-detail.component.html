@@ -1,0 +1,24 @@
+<div class="container col-6 mt-3">
+  <h3>Employee Details</h3>
+  <form>
+    <div class="form-group">
+      <label class="font-weight-bold" for="id">ID</label>
+      <input readonly [(ngModel)]="employee.id" name="id" id="id" type="text" class="form-control" />
+    </div>
+    <div class="form-group">
+      <label class="font-weight-bold" for="firstName">First Name</label>
+      <input readonly [(ngModel)]="employee.firstName" name="firstName" id="firstName" type="text" class="form-control" />
+    </div>
+    <div class="form-group">
+      <label class="font-weight-bold" for="lastName">Last Name</label>
+      <input readonly [(ngModel)]="employee.lastName" name="lastName" id="lastName" type="text" class="form-control" />
+    </div>
+    <div class="form-group">
+      <label class="font-weight-bold" for="age">Age</label>
+      <input readonly [(ngModel)]="employee.age" name="age" id="age" type="number" class="form-control" />
+    </div>
+    <div class="form-group">
+      <button class="btn btn-danger" type="button" (click)="onClose()">Cancel</button>
+    </div>
+  </form>
+</div>
