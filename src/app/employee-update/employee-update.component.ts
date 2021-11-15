@@ -16,6 +16,7 @@ export class EmployeeUpdateComponent implements OnInit {
    */
 
   employee : Employee = new Employee();
+  constantEmployee : Employee = new Employee();
   id : number | undefined;
 
   /*
@@ -43,6 +44,7 @@ export class EmployeeUpdateComponent implements OnInit {
     this.employeeService.getEmployeeById(this.id).subscribe(
       success => {
         this.employee = success;
+        this.constantEmployee = {...success};
       },
       error => {
         console.log(error);
@@ -67,5 +69,12 @@ export class EmployeeUpdateComponent implements OnInit {
 
   onClose() {
     this.gotoEmployeeList();
+  }
+
+  onReset(employeeForm :NgForm) {
+    this.employee = {...this.constantEmployee};
+    employeeForm.form.markAsPristine();
+    employeeForm.form.markAsUntouched();
+    employeeForm.form.updateValueAndValidity();
   }
 }

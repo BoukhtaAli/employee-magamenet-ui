@@ -52,4 +52,11 @@ export class EmployeeAddComponent implements OnInit {
   onClose() {
     this.gotoEmployeeList();
   }
+
+  onReset(employeeForm :NgForm) {
+    this.employee = new Employee();
+    employeeForm.form.markAsPristine();
+    employeeForm.form.markAsUntouched();
+    employeeForm.form.updateValueAndValidity();
+  }
 }
