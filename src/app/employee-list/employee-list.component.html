@@ -1,10 +1,10 @@
-<div class="col-10 mx-auto">
+<div class="col-10 mx-auto borderClass">
   <div class="row">
     <div class="col">
       <span class="titleClass">Employee Management</span>
     </div>
     <div class="col text-right">
-      <button class="btn btn-info" (click)="gotoAddEmployee()">Add new Employee</button>
+      <button title="add employee" class="btn btn-info font-weight-bold" (click)="gotoAddEmployee()">Add new Employee</button>
     </div>
   </div>
   <table class="table table-striped table-bordered">
@@ -24,9 +24,9 @@
         <td>{{employee.lastName}}</td>
         <td>{{employee.age}}</td>
         <td>
-          <span class="col"><fa-icon class="editIconClass" [icon]="faEdit" (click)="updateEmployee(employee.id)"></fa-icon></span>
-          <span class="col"><fa-icon class="displayIconClass" [icon]="faEye" (click)="getEmployee(employee.id)"></fa-icon></span>
-          <span class="col"><fa-icon class="deleteIconClass" [icon]="faMinus" (click)="deleteEmployee(employee.id)"></fa-icon></span>
+          <span class="col"><fa-icon title="update employee" class="editIconClass" [icon]="faEdit" (click)="updateEmployee(employee.id)"></fa-icon></span>
+          <span class="col"><fa-icon title="employee details" class="displayIconClass" [icon]="faEye" (click)="getEmployee(employee.id)"></fa-icon></span>
+          <span class="col"><fa-icon title="delete employee" class="deleteIconClass" [icon]="faMinus" (click)="deleteEmployee(employee.id)"></fa-icon></span>
         </td>
       </tr>
     </tbody>

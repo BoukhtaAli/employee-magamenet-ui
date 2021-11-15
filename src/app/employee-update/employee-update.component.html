@@ -1,6 +1,6 @@
-<div class="container col-6">
+<div class="container col-6 borderClass">
   <h3>Update Employee</h3>
-  <form #employeeForm="ngForm" (ngSubmit)="onSubmit(employeeForm)" action="">
+  <form #employeeForm="ngForm" (ngSubmit)="onSubmit(employeeForm)" >
     <div class="form-group">
       <label class="font-weight-bold" for="id">First Name</label>
       <input [(ngModel)]="employee.id" readonly name="id" id="id" type="text" class="form-control" />

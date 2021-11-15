@@ -1,6 +1,6 @@
-<div class="container col-6">
+<div class="container col-6 borderClass">
   <h3>Add new Employee</h3>
-  <form #employeeForm="ngForm" novalidate (ngSubmit)="onSubmit(employeeForm)" action="">
+  <form #employeeForm="ngForm" novalidate (ngSubmit)="onSubmit(employeeForm)" >
     <div class="form-group">
       <label class="font-weight-bold" for="firstName">First Name</label>
       <input #firstName="ngModel" maxSizeSelector="15" [class.is-invalid]="firstName.invalid && firstName.touched" [(ngModel)]="employee.firstName" name="firstName" id="firstName" type="text" class="form-control" required minlength="3"/>
