@@ -6,12 +6,12 @@ import {AbstractControl, NG_VALIDATORS, ValidationErrors, Validator} from "@angu
   providers : [
     {
       provide: NG_VALIDATORS,
-      useExisting: FirstNameLengthDirective,
+      useExisting: MaxLengthDirective,
       multi: true
     }
   ]
 })
-export class FirstNameLengthDirective implements Validator{
+export class MaxLengthDirective implements Validator{
 
   @Input('maxSizeSelector') inputSize = "";
 
