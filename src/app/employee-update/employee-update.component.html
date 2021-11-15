@@ -1,4 +1,4 @@
-<div class="container col-6 mt-3">
+<div class="container col-6">
   <h3>Update Employee</h3>
   <form #employeeForm="ngForm" (ngSubmit)="onSubmit(employeeForm)" action="">
     <div class="form-group">
@@ -7,18 +7,20 @@
     </div>
     <div class="form-group">
       <label class="font-weight-bold" for="firstName">First Name</label>
-      <input #firstName="ngModel" [class.is-invalid]="firstName.invalid && firstName.touched" [(ngModel)]="employee.firstName" name="firstName" id="firstName" type="text" class="form-control" required maxlength="50" minlength="3"/>
+      <input #firstName="ngModel" maxSizeSelector="15" [class.is-invalid]="firstName.invalid && firstName.touched" [(ngModel)]="employee.firstName" name="firstName" id="firstName" type="text" class="form-control" required maxlength="50" minlength="3"/>
       <div *ngIf="firstName.errors && firstName.touched">
         <small class="text-danger" *ngIf="firstName.errors['required']">first Name is required</small>
         <small class="text-danger" *ngIf="firstName.errors['minlength']">first Name should contain at least 3 chars</small>
+        <small class="text-danger" *ngIf="firstName.errors['maxSizeSelector']">first Name should contain at most 15 chars</small>
       </div>
     </div>
     <div class="form-group">
       <label class="font-weight-bold" for="lastName">Last Name</label>
-      <input #lastName="ngModel" [class.is-invalid]="lastName.invalid && lastName.touched" [(ngModel)]="employee.lastName" name="lastName" id="lastName" type="text" class="form-control" required maxlength="50" minlength="3"/>
+      <input #lastName="ngModel" maxSizeSelector="20" [class.is-invalid]="lastName.invalid && lastName.touched" [(ngModel)]="employee.lastName" name="lastName" id="lastName" type="text" class="form-control" required maxlength="50" minlength="3"/>
       <div *ngIf="lastName.errors && lastName.touched">
         <small class="text-danger" *ngIf="lastName.errors['required']">last Name is required</small>
         <small class="text-danger" *ngIf="lastName.errors['minlength']">last Name should contain at least 3 chars</small>
+        <small class="text-danger" *ngIf="lastName.errors['maxSizeSelector']">last Name should contain at most 20 chars</small>
       </div>
     </div>
     <div class="form-group">

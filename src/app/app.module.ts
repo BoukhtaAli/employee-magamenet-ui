@@ -13,6 +13,7 @@ import { EmployeeAddComponent } from './employee-add/employee-add.component';
 import { EmployeeUpdateComponent } from './employee-update/employee-update.component';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { EmployeeDetailComponent } from './employee-detail/employee-detail.component';
+import {FirstNameLengthDirective} from "./input-validation/employee/string-max-length.directive";
 
 @NgModule({
   declarations: [
@@ -23,7 +24,8 @@ import { EmployeeDetailComponent } from './employee-detail/employee-detail.compo
     AppFooterComponent,
     EmployeeAddComponent,
     EmployeeUpdateComponent,
-    EmployeeDetailComponent
+    EmployeeDetailComponent,
+    FirstNameLengthDirective
   ],
   imports: [
     BrowserModule,
