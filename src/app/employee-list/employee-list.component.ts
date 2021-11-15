@@ -3,6 +3,7 @@ import { Employee } from "../employee";
 import { EmployeeServiceService } from "../employee-service.service";
 import { faEdit , faEye, faMinus} from "@fortawesome/free-solid-svg-icons";
 import {Router} from "@angular/router";
+import {ConfirmationDialogService} from "../confirmation-dialog/confirmatio-dialog-service";
 
 @Component({
   selector: 'app-employee-list',
@@ -24,7 +25,7 @@ export class EmployeeListComponent implements OnInit {
    Constructor & Methods
    */
 
-  constructor(private employeeService: EmployeeServiceService, private router: Router) {
+  constructor(private employeeService: EmployeeServiceService, private router: Router, private confirmationDialogService: ConfirmationDialogService) {
 
   }
 
@@ -43,14 +44,7 @@ export class EmployeeListComponent implements OnInit {
   }
 
   deleteEmployee(id: number | undefined) {
-    this.employeeService.deleteEmployeeById(id).subscribe(
-      response  => {
-        this.retrieveEmployees();
-      },
-      error => {
-        console.log(error);
-      }
-    );
+    this.openConfirmationDialog(id);
   }
 
   getEmployee(id: number | undefined) {
@@ -59,5 +53,25 @@ export class EmployeeListComponent implements OnInit {
 
   gotoAddEmployee() {
     this.router.navigate(["/createEmployee"]);
+  }
+
+  private openConfirmationDialog(id:number|undefined) {
+
+    this.confirmationDialogService.confirm('Confirmation Box...', 'Do you really want to delete employee ?')
+      .then((confirmed) => {
+        if(confirmed){
+          this.employeeService.deleteEmployeeById(id).subscribe(
+            response  => {
+              this.retrieveEmployees();
+            },
+            error => {
+              console.log(error);
+            }
+          );
+        }else {
+          return;
+        }
+      })
+      .catch(() => console.log('An Error has occurred!'));
   }
 }

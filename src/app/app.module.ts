@@ -14,6 +14,8 @@ import { EmployeeUpdateComponent } from './employee-update/employee-update.compo
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { EmployeeDetailComponent } from './employee-detail/employee-detail.component';
 import {MaxLengthDirective} from "./input-validation/employee/string-max-length.directive";
+import { ConfirmationDialogComponent } from './confirmation-dialog/confirmation-dialog.component';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 
 @NgModule({
   declarations: [
@@ -25,14 +27,16 @@ import {MaxLengthDirective} from "./input-validation/employee/string-max-length.
     EmployeeAddComponent,
     EmployeeUpdateComponent,
     EmployeeDetailComponent,
-    MaxLengthDirective
+    MaxLengthDirective,
+    ConfirmationDialogComponent
   ],
   imports: [
     BrowserModule,
     HttpClientModule,
     AppRoutingModule,
     FormsModule,
-    FontAwesomeModule
+    FontAwesomeModule,
+    NgbModule
   ],
   providers: [],
   bootstrap: [AppComponent]
