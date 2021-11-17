@@ -10,10 +10,10 @@
         Employee Management
       </a>
     </li>
-    <li class="nav-item pt-2 pl-1">
+    <li class="nav-brand pt-2">
       <div>
         <select  (change)="changeLocale($event)">
-          <option *ngFor="let locale of supportedLanguages">{{locale}}</option>
+          <option *ngFor="let locale of supportedLanguages" >{{locale}}</option>
         </select>
       </div>
     </li>

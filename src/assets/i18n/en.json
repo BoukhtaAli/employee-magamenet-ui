@@ -1,0 +1,17 @@
+{
+  "employee-management": {
+    "space": {
+      "title": "Employee Management Space",
+      "addButton": "Add new Employee"
+    },
+    "add-view": {
+
+    },
+    "update-view": {
+
+    },
+    "details-view": {
+
+    }
+  }
+}

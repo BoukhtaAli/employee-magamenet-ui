@@ -11,7 +11,7 @@ export class AppHeaderComponent implements OnInit {
   ngOnInit(): void {
   }
 
-  supportedLanguages = ['en', 'fr'];
+  supportedLanguages = ['fr', 'en'];
 
   constructor(private translateService: TranslateService) {
 
