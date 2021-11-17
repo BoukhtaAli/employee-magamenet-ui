@@ -1,9 +1,10 @@
 import {Component, OnInit} from '@angular/core';
-import {Employee} from "../employee";
 import {NgForm} from "@angular/forms";
-import {EmployeeServiceService} from "../employee-service.service";
 import {ActivatedRoute, Router} from "@angular/router";
-import {ConfirmationDialogService} from "../confirmation-dialog/confirmatio-dialog-service";
+import {Employee} from "../../../domain-classes/employee/employee";
+import {EmployeeServiceService} from "../../../api-services/employee-service/employee-service.service";
+import {ConfirmationDialogService} from "../../../commons/confirmation-dialog/confirmatio-dialog-service";
+
 
 @Component({
   selector: 'app-employee-update',
@@ -81,7 +82,7 @@ export class EmployeeUpdateComponent implements OnInit {
 
   private openConfirmationDialog(employee : Employee) {
 
-    this.confirmationDialogService.confirm('Confirmation Box...', 'Do you really want to update employee ?')
+    this.confirmationDialogService.confirm('Confirmation Box...', 'Do you really want to update max-length-directive ?')
       .then((confirmed) => {
         if(confirmed){
           this.updateEmployee(employee);

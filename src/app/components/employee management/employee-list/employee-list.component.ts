@@ -1,9 +1,10 @@
 import { Component, OnInit } from '@angular/core';
-import { Employee } from "../employee";
-import { EmployeeServiceService } from "../employee-service.service";
 import { faEdit , faEye, faMinus} from "@fortawesome/free-solid-svg-icons";
 import {Router} from "@angular/router";
-import {ConfirmationDialogService} from "../confirmation-dialog/confirmatio-dialog-service";
+import {Employee} from "../../../domain-classes/employee/employee";
+import {EmployeeServiceService} from "../../../api-services/employee-service/employee-service.service";
+import {ConfirmationDialogService} from "../../../commons/confirmation-dialog/confirmatio-dialog-service";
+
 
 @Component({
   selector: 'app-employee-list',
@@ -57,7 +58,7 @@ export class EmployeeListComponent implements OnInit {
 
   private openConfirmationDialog(id:number|undefined) {
 
-    this.confirmationDialogService.confirm('Confirmation Box...', 'Do you really want to delete employee ?')
+    this.confirmationDialogService.confirm('Confirmation Box...', 'Do you really want to delete max-length-directive ?')
       .then((confirmed) => {
         if(confirmed){
           this.employeeService.deleteEmployeeById(id).subscribe(

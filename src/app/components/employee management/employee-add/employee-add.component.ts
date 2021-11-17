@@ -1,9 +1,9 @@
 import { Component, OnInit } from '@angular/core';
-import {Employee} from "../employee";
-import {EmployeeServiceService} from "../employee-service.service";
 import {Router} from "@angular/router";
 import {NgForm} from "@angular/forms";
-import {ConfirmationDialogService} from "../confirmation-dialog/confirmatio-dialog-service";
+import {Employee} from "../../../domain-classes/employee/employee";
+import {EmployeeServiceService} from "../../../api-services/employee-service/employee-service.service";
+import {ConfirmationDialogService} from "../../../commons/confirmation-dialog/confirmatio-dialog-service";
 
 @Component({
   selector: 'app-employee-add',
@@ -63,7 +63,7 @@ export class EmployeeAddComponent implements OnInit {
 
   private openConfirmationDialog(employee : Employee) {
 
-    this.confirmationDialogService.confirm('Confirmation Box...', 'Do you really want to add employee ?')
+    this.confirmationDialogService.confirm('Confirmation Box...', 'Do you really want to add max-length-directive ?')
       .then((confirmed) => {
         if(confirmed){
           this.saveEmployee(employee);

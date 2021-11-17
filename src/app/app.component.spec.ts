@@ -19,13 +19,13 @@ describe('AppComponent', () => {
   it(`should have as title 'employee-management-system-ui'`, () => {
     const fixture = TestBed.createComponent(AppComponent);
     const app = fixture.componentInstance;
-    expect(app.title).toEqual('employee-management-system-ui');
+    expect(app.title).toEqual('max-length-directive-management-system-ui');
   });
 
   it('should render title', () => {
     const fixture = TestBed.createComponent(AppComponent);
     fixture.detectChanges();
     const compiled = fixture.nativeElement as HTMLElement;
-    expect(compiled.querySelector('.content span')?.textContent).toContain('employee-management-system-ui app is running!');
+    expect(compiled.querySelector('.content span')?.textContent).toContain('max-length-directive-management-system-ui app is running!');
   });
 });

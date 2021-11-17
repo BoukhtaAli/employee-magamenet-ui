@@ -6,5 +6,5 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  title : string = 'employee-management-system-ui';
+  title : string = 'max-length-directive-management-system-ui';
 }
