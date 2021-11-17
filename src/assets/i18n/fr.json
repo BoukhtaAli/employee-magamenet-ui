@@ -1,0 +1,17 @@
+{
+  "employee-management": {
+    "space": {
+      "title": "Espace de gestion des employées",
+      "addButton": "Ajouter employée"
+    },
+    "add-view": {
+
+    },
+    "update-view": {
+
+    },
+    "details-view": {
+
+    }
+  }
+}

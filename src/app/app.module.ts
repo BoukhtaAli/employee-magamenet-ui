@@ -4,7 +4,7 @@ import { FormsModule} from "@angular/forms";
 
 import { AppComponent } from './app.component';
 import { EmployeeListComponent } from './components/employee management/employee-list/employee-list.component';
-import {HttpClientModule} from "@angular/common/http";
+import {HttpClient, HttpClientModule} from "@angular/common/http";
 import { AppRoutingModule } from './app-routing.module';
 import { HomePageComponent } from './commons/home-page/home-page.component';
 import { AppHeaderComponent } from './commons/app-header/app-header.component';
@@ -16,6 +16,8 @@ import { EmployeeDetailComponent } from './components/employee management/employ
 import {MaxLengthDirective} from "./custom-validation/max-length-directive/string-max-length.directive";
 import { ConfirmationDialogComponent } from './commons/confirmation-dialog/confirmation-dialog.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import {TranslateLoader, TranslateModule} from "@ngx-translate/core";
+import {TranslateHttpLoader} from "@ngx-translate/http-loader";
 
 @NgModule({
   declarations: [
@@ -36,7 +38,14 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
     AppRoutingModule,
     FormsModule,
     FontAwesomeModule,
-    NgbModule
+    NgbModule,
+    TranslateModule.forRoot({
+      loader : {
+        provide: TranslateLoader,
+        useFactory: (http:HttpClient) => {return new TranslateHttpLoader(http, './assets/i18n/', '.json')},
+        deps : [HttpClient]
+      }
+    })
   ],
   providers: [],
   bootstrap: [AppComponent]
