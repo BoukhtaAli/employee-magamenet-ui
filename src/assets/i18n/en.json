@@ -2,13 +2,31 @@
   "employee-management": {
     "space": {
       "title": "Employee Management Space",
-      "addButton": "Add new Employee"
+      "addButton": "Add new Employee",
+      "tableFields": {
+        "id": "ID",
+        "firstName": "First name",
+        "lastName": "Last name",
+        "age": "Age",
+        "actions": "Actions"
+      }
     },
     "add-view": {
-
+      "title": "Add New ",
+      "formFields": {
+        "firstName": "First Name *",
+        "lastName": "Last Name *",
+        "age": "Age *"
+      }
     },
     "update-view": {
-
+      "title": "Update Employee ",
+      "formFields": {
+        "id": "ID",
+        "firstName": "First Name *",
+        "lastName": "Last Name *",
+        "age": "Age *"
+      }
     },
     "details-view": {
 

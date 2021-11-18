@@ -58,7 +58,7 @@ export class EmployeeListComponent implements OnInit {
 
   private openConfirmationDialog(id:number|undefined) {
 
-    this.confirmationDialogService.confirm('Confirmation Box...', 'Do you really want to delete max-length-directive ?')
+    this.confirmationDialogService.confirm('Confirmation Box...', 'Do you really want to delete this item ?')
       .then((confirmed) => {
         if(confirmed){
           this.employeeService.deleteEmployeeById(id).subscribe(

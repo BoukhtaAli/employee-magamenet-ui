@@ -63,7 +63,7 @@ export class EmployeeAddComponent implements OnInit {
 
   private openConfirmationDialog(employee : Employee) {
 
-    this.confirmationDialogService.confirm('Confirmation Box...', 'Do you really want to add max-length-directive ?')
+    this.confirmationDialogService.confirm('Confirmation Box...', 'Do you really want to add this item ?')
       .then((confirmed) => {
         if(confirmed){
           this.saveEmployee(employee);

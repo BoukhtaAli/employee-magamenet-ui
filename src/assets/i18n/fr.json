@@ -2,13 +2,31 @@
   "employee-management": {
     "space": {
       "title": "Espace de gestion des employées",
-      "addButton": "Ajouter employée"
+      "addButton": "Ajouter employée",
+      "tableFields": {
+        "id": "ID",
+        "firstName": "Prénom",
+        "lastName": "Nom",
+        "age": "Age",
+        "actions": "Actions"
+      }
     },
     "add-view": {
-
+      "title": "Ajouter nouveau",
+      "formFields": {
+        "firstName": "Prénom *",
+        "lastName": "Nom *",
+        "age": "Age *"
+      }
     },
     "update-view": {
-
+      "title": "Modifier employée",
+      "formFields": {
+        "id": "ID",
+        "firstName": "Prénom *",
+        "lastName": "Nom *",
+        "age": "Age *"
+      }
     },
     "details-view": {
 

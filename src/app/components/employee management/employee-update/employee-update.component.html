@@ -1,12 +1,12 @@
 <div class="container col-6 borderClass">
-  <h3>Update Employee</h3>
+  <h3>{{'employee-management.update-view.title' | translate}}</h3>
   <form #employeeForm="ngForm" (ngSubmit)="onSubmit(employeeForm)" >
     <div class="form-group">
-      <label class="font-weight-bold" for="id">First Name</label>
+      <label class="font-weight-bold" for="id">{{'employee-management.update-view.formFields.id' | translate}}</label>
       <input [(ngModel)]="employee.id" readonly name="id" id="id" type="text" class="form-control" />
     </div>
     <div class="form-group">
-      <label class="font-weight-bold" for="firstName">First Name</label>
+      <label class="font-weight-bold" for="firstName">{{'employee-management.update-view.formFields.firstName' | translate}}</label>
       <input #firstName="ngModel" maxSizeSelector="15" [class.is-invalid]="firstName.invalid && firstName.touched" [(ngModel)]="employee.firstName" name="firstName" id="firstName" type="text" class="form-control" required maxlength="50" minlength="3"/>
       <div *ngIf="firstName.errors && firstName.touched">
         <small class="text-danger" *ngIf="firstName.errors['required']">first Name is required</small>
@@ -15,7 +15,7 @@
       </div>
     </div>
     <div class="form-group">
-      <label class="font-weight-bold" for="lastName">Last Name</label>
+      <label class="font-weight-bold" for="lastName">{{'employee-management.add-view.formFields.lastName' | translate}}</label>
       <input #lastName="ngModel" maxSizeSelector="20" [class.is-invalid]="lastName.invalid && lastName.touched" [(ngModel)]="employee.lastName" name="lastName" id="lastName" type="text" class="form-control" required maxlength="50" minlength="3"/>
       <div *ngIf="lastName.errors && lastName.touched">
         <small class="text-danger" *ngIf="lastName.errors['required']">last Name is required</small>
@@ -24,7 +24,7 @@
       </div>
     </div>
     <div class="form-group">
-      <label class="font-weight-bold" for="age">Age</label>
+      <label class="font-weight-bold" for="age">{{'employee-management.add-view.formFields.age' | translate}}</label>
       <input #age="ngModel" [class.is-invalid]="age.invalid && age.touched" [(ngModel)]="employee.age" name="age" id="age" type="number" class="form-control" required/>
       <div *ngIf="age.errors && age.touched">
         <small class="text-danger" *ngIf="age.errors['required']">age is required</small>
