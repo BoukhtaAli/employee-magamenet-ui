@@ -6,6 +6,7 @@ import {EmployeeServiceService} from "../../../api-services/employee-service/emp
 import {ConfirmationDialogService} from "../../../commons/confirmation-dialog/confirmatio-dialog-service";
 import {TranslateService} from '@ngx-translate/core';
 import {NotyfService} from "../../../commons/js-code/notyf/notyf.service";
+import {HttpErrorResponse} from "@angular/common/http";
 
 @Component({
   selector: 'app-employee-add',
@@ -50,7 +51,7 @@ export class EmployeeAddComponent implements OnInit {
         this.notyfService.showNotyf("success",this.translateService.instant('employee-management.add-view.notyf.create.success'));
       },
       error => {
-        this.notyfService.showNotyf("error",this.translateService.instant('employee-management.add-view.notyf.create.error'));
+        this.handleResponseError(error);
       }
     );
   }
@@ -83,5 +84,13 @@ export class EmployeeAddComponent implements OnInit {
         }
       })
       .catch(() => console.log('An Error has occurred!'));
+  }
+
+  private handleResponseError(error: HttpErrorResponse) {
+    if(error.status === 0){
+      this.notyfService.showNotyf("error",this.translateService.instant('employee-management.add-view.notyf.create.error'));
+    }else if(error.status === 400 ){
+      this.notyfService.showNotyf("error",error.error);
+    }
   }
 }
