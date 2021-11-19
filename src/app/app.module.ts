@@ -18,6 +18,7 @@ import { ConfirmationDialogComponent } from './commons/confirmation-dialog/confi
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import {TranslateLoader, TranslateModule} from "@ngx-translate/core";
 import {TranslateHttpLoader} from "@ngx-translate/http-loader";
+import { NOTYF, notyfFactory } from './commons/js-code/notyf/notyf.token';
 
 @NgModule({
   declarations: [
@@ -47,7 +48,9 @@ import {TranslateHttpLoader} from "@ngx-translate/http-loader";
       }
     })
   ],
-  providers: [],
+  providers: [
+    { provide: NOTYF, useFactory: notyfFactory }
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

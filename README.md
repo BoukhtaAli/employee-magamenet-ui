@@ -26,4 +26,12 @@ goto your service class and import httpClient in the constructor
 
 1- npm i @ngx-translate/core @ngx-translate/http-loader --save
 2- add translate module as defined in import section.
-3- 
+3- create en and fr ... files and start using them {{ 'key' | translate}}
+
+### Add Notyf 
+
+1- npm i notyf --save
+2- add notyf.min.css to angular.json file
+3- provide notyf to app.module.ts using notyf.token.ts
+4- create notyf.ts service file in order to customize the notyf coomponent.
+5- inject the service and call your notyf!

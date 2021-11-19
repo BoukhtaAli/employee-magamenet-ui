@@ -29,7 +29,8 @@
             "styles": [
               "node_modules/bootstrap/dist/css/bootstrap.min.css",
               "src/styles.css",
-              "bootstrap/dist/css/bootstrap.css"
+              "bootstrap/dist/css/bootstrap.css",
+              "notyf/notyf.min.css"
             ],
             "scripts": [
             ]

@@ -1,4 +1,17 @@
 {
+  "navbar":{
+    "homePage": "Page d'acceuil",
+    "employeeManagement": "Gestion des employées"
+  },
+  "common-components": {
+    "button": {
+      "submit": "Soumettre",
+      "reset": "Réinitialiser",
+      "cancel": "Annuler",
+      "close": "Fermer",
+      "validate": "Valider"
+    }
+  },
   "employee-management": {
     "space": {
       "title": "Espace de gestion des employées",
@@ -9,14 +22,48 @@
         "lastName": "Nom",
         "age": "Age",
         "actions": "Actions"
+      },
+      "notyf": {
+        "delete": {
+          "success": "L'employé a été supprimé!",
+          "error": "Erreur de serveur inconnue"
+        }
       }
     },
     "add-view": {
       "title": "Ajouter nouveau",
+      "confirmationBox": {
+        "title": "Boîte de confirmation pour ajouter un employé",
+        "message": "Veuillez confirmer que vous voulez ajouter cet employé."
+      },
       "formFields": {
         "firstName": "Prénom *",
         "lastName": "Nom *",
         "age": "Age *"
+      },
+      "errorMessages": {
+        "firstName": {
+          "required": "le prénom est réquis",
+          "minLength": "le prénom doit contenir au moins 3 lettres",
+          "maxLength": "le prénom ne doit pas dépasser 15 lettres"
+        },
+        "lastName": {
+          "required": "le nom est réquis",
+          "minLength": "le bom doit contenir au moins 3 lettres",
+          "maxLength": "le nom ne doit pas dépasser 20 lettres"
+        },
+        "age": {
+          "required": "l'age est réquis"
+        }
+      },
+      "notyf": {
+        "create": {
+          "success": "L'employé a été enregistré!",
+          "error": "Erreur de serveur inconnue"
+        },
+        "reset": {
+          "success": "Le formulaire a été réinitialisé!"
+        }
       }
     },
     "update-view": {

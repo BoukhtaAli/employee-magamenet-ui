@@ -1,9 +1,11 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit , Inject} from '@angular/core';
 import {Router} from "@angular/router";
 import {NgForm} from "@angular/forms";
 import {Employee} from "../../../domain-classes/employee/employee";
 import {EmployeeServiceService} from "../../../api-services/employee-service/employee-service.service";
 import {ConfirmationDialogService} from "../../../commons/confirmation-dialog/confirmatio-dialog-service";
+import {TranslateService} from '@ngx-translate/core';
+import {NotyfService} from "../../../commons/js-code/notyf/notyf.service";
 
 @Component({
   selector: 'app-employee-add',
@@ -22,7 +24,11 @@ export class EmployeeAddComponent implements OnInit {
    Constructor and Methods.
    */
 
-  constructor(private employeeService: EmployeeServiceService, private router: Router, private confirmationDialogService: ConfirmationDialogService) { }
+  constructor(private employeeService: EmployeeServiceService,
+              private router: Router,
+              private confirmationDialogService: ConfirmationDialogService,
+              private translateService: TranslateService,
+              private notyfService : NotyfService) { }
 
   ngOnInit(): void {
   }
@@ -41,8 +47,11 @@ export class EmployeeAddComponent implements OnInit {
     this.employeeService.createNewEmployee(employee).subscribe(
       success => {
         this.gotoEmployeeList();
+        this.notyfService.showNotyf("success",this.translateService.instant('employee-management.add-view.notyf.create.success'));
       },
-      error => {console.log(error)}
+      error => {
+        this.notyfService.showNotyf("error",this.translateService.instant('employee-management.add-view.notyf.create.error'));
+      }
     );
   }
 
@@ -59,11 +68,13 @@ export class EmployeeAddComponent implements OnInit {
     employeeForm.form.markAsPristine();
     employeeForm.form.markAsUntouched();
     employeeForm.form.updateValueAndValidity();
+
+    this.notyfService.showNotyf("warning",this.translateService.instant('employee-management.add-view.notyf.reset.success'));
   }
 
   private openConfirmationDialog(employee : Employee) {
 
-    this.confirmationDialogService.confirm('Confirmation Box...', 'Do you really want to add this item ?')
+    this.confirmationDialogService.confirm(this.translateService.instant('employee-management.add-view.confirmationBox.title'), this.translateService.instant('employee-management.add-view.confirmationBox.message'),)
       .then((confirmed) => {
         if(confirmed){
           this.saveEmployee(employee);

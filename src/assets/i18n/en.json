@@ -1,4 +1,17 @@
 {
+  "navbar":{
+    "homePage": "Home Page",
+    "employeeManagement": "Employee Management"
+  },
+  "common-components": {
+    "button": {
+      "submit": "Submit",
+      "reset": "Reset",
+      "cancel": "Cancel",
+      "close": "Close",
+      "validate": "Validate"
+    }
+  },
   "employee-management": {
     "space": {
       "title": "Employee Management Space",
@@ -9,14 +22,48 @@
         "lastName": "Last name",
         "age": "Age",
         "actions": "Actions"
+      },
+      "notyf": {
+        "delete": {
+          "success": "Employee Has been deleted!",
+          "error": "Unknown Server Error"
+        }
       }
     },
     "add-view": {
       "title": "Add New ",
+      "confirmationBox": {
+        "title": "Confirmation Box for Add Employee",
+        "message": "Please confirm that you want to add this employee."
+      },
       "formFields": {
         "firstName": "First Name *",
         "lastName": "Last Name *",
         "age": "Age *"
+      },
+      "errorMessages": {
+        "firstName": {
+          "required": "first name is required.",
+          "minLength": "first name should contain at least 3 letters",
+          "maxLength": "first name should contain at most 15 letters"
+        },
+        "lastName": {
+          "required": "last name is required.",
+          "minLength": "last name should contain at least 3 letters",
+          "maxLength": "last name should contain at most 20 letters"
+        },
+        "age": {
+          "required": "age is required"
+        }
+      },
+      "notyf": {
+        "create": {
+          "success": "Employee Has been saved!",
+          "error": "Unknown Server Error"
+        },
+        "reset": {
+          "success": "Form has been Reset!"
+        }
       }
     },
     "update-view": {

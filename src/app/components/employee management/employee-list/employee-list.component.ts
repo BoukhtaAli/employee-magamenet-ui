@@ -1,10 +1,11 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Inject} from '@angular/core';
 import { faEdit , faEye, faMinus} from "@fortawesome/free-solid-svg-icons";
 import {Router} from "@angular/router";
 import {Employee} from "../../../domain-classes/employee/employee";
 import {EmployeeServiceService} from "../../../api-services/employee-service/employee-service.service";
 import {ConfirmationDialogService} from "../../../commons/confirmation-dialog/confirmatio-dialog-service";
-
+import {NotyfService} from "../../../commons/js-code/notyf/notyf.service";
+import {TranslateService} from "@ngx-translate/core";
 
 @Component({
   selector: 'app-employee-list',
@@ -26,7 +27,11 @@ export class EmployeeListComponent implements OnInit {
    Constructor & Methods
    */
 
-  constructor(private employeeService: EmployeeServiceService, private router: Router, private confirmationDialogService: ConfirmationDialogService) {
+  constructor(private employeeService: EmployeeServiceService,
+              private router: Router,
+              private confirmationDialogService: ConfirmationDialogService,
+              private translateService: TranslateService,
+              private notyfService : NotyfService) {
 
   }
 
@@ -63,10 +68,11 @@ export class EmployeeListComponent implements OnInit {
         if(confirmed){
           this.employeeService.deleteEmployeeById(id).subscribe(
             response  => {
+              this.notyfService.showNotyf("success",this.translateService.instant('employee-management.space.notyf.delete.success'));
               this.retrieveEmployees();
             },
             error => {
-              console.log(error);
+              this.notyfService.showNotyf("error",this.translateService.instant('employee-management.space.notyf.delete.error'));
             }
           );
         }else {
