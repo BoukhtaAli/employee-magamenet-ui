@@ -1,7 +1,9 @@
 {
   "navbar":{
     "homePage": "Home Page",
-    "employeeManagement": "Employee Management"
+    "employeeManagement": "Employee Management",
+    "login": "Login",
+    "logout": "Logout"
   },
   "common-components": {
     "button": {
@@ -77,6 +79,15 @@
     },
     "details-view": {
 
+    }
+  },
+  "login-page": {
+    "title": "Please Login...",
+    "form-fields": {
+      "username": "Username *",
+      "password": "Password *",
+      "login-button": "Login",
+      "login-error": "invalid username or password.."
     }
   }
 }

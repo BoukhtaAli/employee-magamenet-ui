@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import {TranslateService} from "@ngx-translate/core";
+import {AuthenticationService} from "../../api-services/authentication/authentication.service";
 
 @Component({
   selector: 'app-app-header',
@@ -13,7 +14,7 @@ export class AppHeaderComponent implements OnInit {
 
   supportedLanguages = ['fr', 'en'];
 
-  constructor(private translateService: TranslateService) {
+  constructor(private translateService: TranslateService, private authenticationService : AuthenticationService) {
 
     this.translateService.addLangs(this.supportedLanguages);
     this.translateService.setDefaultLang('en');
@@ -27,5 +28,9 @@ export class AppHeaderComponent implements OnInit {
 
   changeLocale(event : any){
     this.translateService.use(event.target.value);
+  }
+
+  isLoggedIn(){
+    return this.authenticationService.isUserLoggedIn();
   }
 }

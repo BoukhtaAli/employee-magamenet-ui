@@ -5,15 +5,20 @@ import {HomePageComponent} from "./commons/home-page/home-page.component";
 import {EmployeeAddComponent} from "./components/employee management/employee-add/employee-add.component";
 import {EmployeeUpdateComponent} from "./components/employee management/employee-update/employee-update.component";
 import {EmployeeDetailComponent} from "./components/employee management/employee-detail/employee-detail.component";
+import {LoginComponent} from "./components/authentication/login/login.component";
+import {LogoutComponent} from "./components/authentication/logout/logout.component";
+import {AuthenticationGuardService} from "./api-services/authentication/authentication-guard.service";
 
 const routes : Routes = [
   {
     path : 'employees',
-    component : EmployeeListComponent
+    component : EmployeeListComponent,
+    canActivate: [AuthenticationGuardService]
   },
   {
     path : 'home',
-    component : HomePageComponent
+    component : HomePageComponent,
+    canActivate: [AuthenticationGuardService]
   },
   {
     path : '',
@@ -21,16 +26,27 @@ const routes : Routes = [
     pathMatch : 'full'
   },
   {
+    path : 'login',
+    component : LoginComponent
+  },
+  {
+    path : 'logout',
+    component : LogoutComponent
+  },
+  {
     path : 'createEmployee',
-    component : EmployeeAddComponent
+    component : EmployeeAddComponent,
+    canActivate: [AuthenticationGuardService]
   },
   {
     path : 'updateEmployee/:id',
-    component : EmployeeUpdateComponent
+    component : EmployeeUpdateComponent,
+    canActivate: [AuthenticationGuardService]
   },
   {
     path : 'getEmployee/:id',
-    component : EmployeeDetailComponent
+    component : EmployeeDetailComponent,
+    canActivate: [AuthenticationGuardService]
   }
 ];
 

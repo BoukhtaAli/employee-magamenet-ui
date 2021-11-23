@@ -1,7 +1,9 @@
 {
   "navbar":{
     "homePage": "Page d'acceuil",
-    "employeeManagement": "Gestion des employées"
+    "employeeManagement": "Gestion des employées",
+    "login": "Se Connecter",
+    "logout": "Se déconnecter"
   },
   "common-components": {
     "button": {
@@ -78,5 +80,14 @@
     "details-view": {
 
     }
+  },
+  "login-page": {
+  "title": "Veuillez vous connecter...",
+  "form-fields": {
+    "username": "Nom d'utilisateur *",
+    "password": "Mot de passe *",
+    "login-button": "Connexion",
+    "login-error": "nom d'utilisateur ou mot de passe invalide..."
   }
+}
 }

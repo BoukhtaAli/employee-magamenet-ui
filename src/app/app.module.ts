@@ -19,6 +19,8 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import {TranslateLoader, TranslateModule} from "@ngx-translate/core";
 import {TranslateHttpLoader} from "@ngx-translate/http-loader";
 import { NOTYF, notyfFactory } from './commons/js-code/notyf/notyf.token';
+import { LoginComponent } from './components/authentication/login/login.component';
+import { LogoutComponent } from './components/authentication/logout/logout.component';
 
 @NgModule({
   declarations: [
@@ -31,7 +33,9 @@ import { NOTYF, notyfFactory } from './commons/js-code/notyf/notyf.token';
     EmployeeUpdateComponent,
     EmployeeDetailComponent,
     MaxLengthDirective,
-    ConfirmationDialogComponent
+    ConfirmationDialogComponent,
+    LoginComponent,
+    LogoutComponent
   ],
   imports: [
     BrowserModule,
