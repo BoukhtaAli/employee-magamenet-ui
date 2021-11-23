@@ -13,7 +13,7 @@ export class EmployeeServiceService {
    */
 
   baseUrl : string = "http://localhost:6060/api/v1/employee";
-  headers : HttpHeaders  = new HttpHeaders({'Content-Type': 'application/json'});
+  headers : HttpHeaders  = new HttpHeaders({'Content-Type': 'application/json', 'Authorization' : 'Basic ' + btoa('zerthue:zerthue')});
 
   /*
    Constructor & Methods
