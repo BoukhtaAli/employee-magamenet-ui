@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import {HttpClient, HttpHeaders} from "@angular/common/http";
 import {Observable} from "rxjs";
 import {Employee} from "../../domain-classes/employee/employee";
+import {AuthenticationService} from "../authentication/authentication.service";
 
 @Injectable({
   providedIn: 'root'
@@ -12,14 +13,15 @@ export class EmployeeServiceService {
    Data & Properties.
    */
 
-  baseUrl : string = "http://localhost:6060/api/v1/employee";
-  headers : HttpHeaders  = new HttpHeaders({'Content-Type': 'application/json', 'Authorization' : 'Basic ' + btoa('zerthue:zerthue')});
+  baseUrl : string = "http://localhost:6060/api/v1/employee/";
+  headers : HttpHeaders  = new HttpHeaders();
 
   /*
    Constructor & Methods
    */
 
-  constructor(private httpClient : HttpClient) {
+  constructor(private httpClient : HttpClient, private authenticationService : AuthenticationService) {
+
   }
 
   getEmployeeList(): Observable<Employee[]> {
@@ -31,7 +33,7 @@ export class EmployeeServiceService {
   }
 
   getEmployeeById(id : number | undefined): Observable<Employee> {
-    return this.httpClient.get<Employee>(`${this.baseUrl}/id/${id}`,{headers : this.headers});
+    return this.httpClient.get<Employee>(`${this.baseUrl}id/${id}`,{headers : this.headers});
   }
 
   updateExistingEmployee(employee : Employee): Observable<Employee>{
@@ -39,6 +41,6 @@ export class EmployeeServiceService {
   }
 
   deleteEmployeeById(id : number | undefined): Observable<any> {
-    return this.httpClient.delete(`${this.baseUrl}/id/${id}`,{headers : this.headers});
+    return this.httpClient.delete(`${this.baseUrl}id/${id}`,{headers : this.headers});
   }
 }

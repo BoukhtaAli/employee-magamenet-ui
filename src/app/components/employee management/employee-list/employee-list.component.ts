@@ -3,9 +3,10 @@ import { faEdit , faEye, faMinus} from "@fortawesome/free-solid-svg-icons";
 import {Router} from "@angular/router";
 import {Employee} from "../../../domain-classes/employee/employee";
 import {EmployeeServiceService} from "../../../api-services/employee-service/employee-service.service";
-import {ConfirmationDialogService} from "../../../commons/confirmation-dialog/confirmatio-dialog-service";
-import {NotyfService} from "../../../commons/js-code/notyf/notyf.service";
+import {ConfirmationDialogService} from "../../confirmation-dialog/confirmatio-dialog-service";
+import {NotyfService} from "../../../api-services/notyf/notyf.service";
 import {TranslateService} from "@ngx-translate/core";
+import {AuthenticationService} from "../../../api-services/authentication/authentication.service";
 
 @Component({
   selector: 'app-employee-list',
@@ -31,7 +32,8 @@ export class EmployeeListComponent implements OnInit {
               private router: Router,
               private confirmationDialogService: ConfirmationDialogService,
               private translateService: TranslateService,
-              private notyfService : NotyfService) {
+              private notyfService : NotyfService,
+              private authenticationService: AuthenticationService) {
 
   }
 
@@ -80,5 +82,9 @@ export class EmployeeListComponent implements OnInit {
         }
       })
       .catch(() => console.log('An Error has occurred!'));
+  }
+
+  roleMatch(roles : any){
+    return this.authenticationService.roleMatch(roles)
   }
 }

@@ -3,7 +3,7 @@ import {NgForm} from "@angular/forms";
 import {ActivatedRoute, Router} from "@angular/router";
 import {Employee} from "../../../domain-classes/employee/employee";
 import {EmployeeServiceService} from "../../../api-services/employee-service/employee-service.service";
-import {ConfirmationDialogService} from "../../../commons/confirmation-dialog/confirmatio-dialog-service";
+import {ConfirmationDialogService} from "../../confirmation-dialog/confirmatio-dialog-service";
 
 
 @Component({

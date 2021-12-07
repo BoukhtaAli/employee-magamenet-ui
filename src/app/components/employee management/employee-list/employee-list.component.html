@@ -26,7 +26,7 @@
         <td>
           <span class="col"><fa-icon title="update employee" class="editIconClass" [icon]="faEdit" (click)="updateEmployee(employee.id)"></fa-icon></span>
           <span class="col"><fa-icon title="employee details" class="displayIconClass" [icon]="faEye" (click)="getEmployee(employee.id)"></fa-icon></span>
-          <span class="col"><fa-icon title="delete employee" class="deleteIconClass" [icon]="faMinus" (click)="deleteEmployee(employee.id)"></fa-icon></span>
+          <span class="col"><fa-icon title="delete employee" class="deleteIconClass" *ngIf="roleMatch(['ADMIN'])" [icon]="faMinus" (click)="deleteEmployee(employee.id)"></fa-icon></span>
         </td>
       </tr>
     </tbody>

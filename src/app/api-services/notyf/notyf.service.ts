@@ -14,7 +14,8 @@ export class NotyfService {
   public showNotyf(type: string, message: string) {
     this.notyf.open({
       type: type,
-      message: message
+      message: message,
+      duration: 1000
     });
   }
 }

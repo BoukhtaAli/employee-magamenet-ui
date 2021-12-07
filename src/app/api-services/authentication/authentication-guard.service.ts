@@ -12,12 +12,28 @@ export class AuthenticationGuardService implements CanActivate{
 
   canActivate(route: ActivatedRouteSnapshot, state: RouterStateSnapshot): Observable<boolean | UrlTree> | Promise<boolean | UrlTree> | boolean | UrlTree {
 
-    if(this.authenticationService.isUserLoggedIn()){
-      return true;
-    }else {
-     this.router.navigate(["/login"]);
-     return false;
+    if(this.authenticationService.getToken() !== null) {
+
+      const roles = route.data["roles"];
+
+      if (roles) {
+
+        const match = this.authenticationService.roleMatch(roles);
+
+        if (match) {
+
+          return true;
+
+        } else {
+
+          this.router.navigate(["/forbidden"]);
+          return false;
+        }
+      }
     }
+
+    this.router.navigate(["/login"]);
+    return false;
   }
 
 }

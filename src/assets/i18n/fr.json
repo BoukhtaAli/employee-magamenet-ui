@@ -89,5 +89,14 @@
     "login-button": "Connexion",
     "login-error": "nom d'utilisateur ou mot de passe invalide..."
   }
-}
+  },
+  "forbidden-access-page": {
+    "title": "Accès interdit!",
+    "body": "Vous n'êtes pas autorisé à accéder à cette page...",
+    "footer": "Aller à la page d'accueil",
+    "popup": "Accès interdit!"
+  },
+  "notyf": {
+    "session-expired": "Session Expirée!"
+  }
 }

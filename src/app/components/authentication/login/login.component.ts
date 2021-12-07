@@ -3,8 +3,7 @@ import {Router} from "@angular/router";
 import {AuthenticationService} from "../../../api-services/authentication/authentication.service";
 import {NgForm} from "@angular/forms";
 import {User} from "../../../domain-classes/login/user";
-import {NotyfService} from "../../../commons/js-code/notyf/notyf.service";
-import {TranslateService} from '@ngx-translate/core';
+import {NotyfService} from "../../../api-services/notyf/notyf.service";
 
 @Component({
   selector: 'app-login',
@@ -13,27 +12,22 @@ import {TranslateService} from '@ngx-translate/core';
 })
 export class LoginComponent implements OnInit {
 
-
   user : User = new User();
-
-  invalidLogin : boolean = false;
 
   constructor(private router: Router,
               private authenticationService : AuthenticationService,
-              private notyfService: NotyfService,
-              private translateService: TranslateService) { }
+              private notyfService: NotyfService) { }
 
   ngOnInit(): void {
   }
 
   login(loginForm : NgForm){
 
-    if(this.authenticationService.authenticate(loginForm.value.username, loginForm.value.password)){
-      this.invalidLogin = false;
-      this.router.navigate(["/home"]);
-    }else {
-      this.invalidLogin = true;
-      this.notyfService.showNotyf("error",this.translateService.instant('login-page.form-fields.login-error'));
-    }
+    this.authenticationService.authenticate(loginForm.value).subscribe(
+      response => {
+        this.authenticationService.setData(response.user.roles, response.user.username, response.accessToken);
+        this.router.navigate(["/"]);
+        this.notyfService.showNotyf("success", "Login Success!");
+      });
   }
 }

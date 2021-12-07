@@ -89,5 +89,14 @@
       "login-button": "Login",
       "login-error": "invalid username or password.."
     }
+  },
+  "forbidden-access-page": {
+    "title": "Forbidden Access!",
+    "body": "You are not allowed to access this page...",
+    "footer": "Go To Home Page",
+    "popup": "Forbidden Access!"
+  },
+  "notyf": {
+    "session-expired": "Session Expired!"
   }
 }

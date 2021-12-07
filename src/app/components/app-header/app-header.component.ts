@@ -33,4 +33,8 @@ export class AppHeaderComponent implements OnInit {
   isLoggedIn(){
     return this.authenticationService.isUserLoggedIn();
   }
+
+  roleMatch(roles : any){
+    return this.authenticationService.roleMatch(roles)
+  }
 }

@@ -3,9 +3,9 @@ import {Router} from "@angular/router";
 import {NgForm} from "@angular/forms";
 import {Employee} from "../../../domain-classes/employee/employee";
 import {EmployeeServiceService} from "../../../api-services/employee-service/employee-service.service";
-import {ConfirmationDialogService} from "../../../commons/confirmation-dialog/confirmatio-dialog-service";
+import {ConfirmationDialogService} from "../../confirmation-dialog/confirmatio-dialog-service";
 import {TranslateService} from '@ngx-translate/core';
-import {NotyfService} from "../../../commons/js-code/notyf/notyf.service";
+import {NotyfService} from "../../../api-services/notyf/notyf.service";
 import {HttpErrorResponse} from "@angular/common/http";
 
 @Component({
