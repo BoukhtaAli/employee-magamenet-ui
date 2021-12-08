@@ -24,7 +24,7 @@ export class ClientInterceptor implements HttpInterceptor{
         (err: HttpErrorResponse) => {
 
           if(err.status === 500){
-            this.notyfService.showNotyf("error", err.message);
+            this.doUnknown(err.message);
           }
 
           else if( err.status === 401 ){
@@ -36,7 +36,6 @@ export class ClientInterceptor implements HttpInterceptor{
             this.doForbiddenAccess();
           }
 
-          this.notyfService.showNotyf("error", err.error);
           return throwError("Unknown Error");
         }
       )
@@ -56,6 +55,7 @@ export class ClientInterceptor implements HttpInterceptor{
     this.notyfService.showNotyf("warning", this.translateService.instant('notyf.session-expired'));
     this.notyfService.showNotyf("warning", this.translateService.instant('notyf.session-expired'));
     this.notyfService.showNotyf("warning", this.translateService.instant('notyf.session-expired'));
+    this.authService.logout();
 
     this.router.navigate(["/login"]);
   }
@@ -69,10 +69,10 @@ export class ClientInterceptor implements HttpInterceptor{
     this.router.navigate(["/forbidden"]);
   }
 
-  private doUnknown() {
+  private doUnknown(message : string) {
 
-    this.notyfService.showNotyf("error", "Unknown Error");
-    this.notyfService.showNotyf("error", "Unknown Error");
-    this.notyfService.showNotyf("error", "Unknown Error");
+    this.notyfService.showNotyf("error", message);
+    this.notyfService.showNotyf("error", message);
+    this.notyfService.showNotyf("error", message);
   }
 }
