@@ -34,6 +34,9 @@ export class ClientInterceptor implements HttpInterceptor{
           } else if( err.status === 403 ){
 
             this.doForbiddenAccess();
+
+          } else if (err.status === 400) {
+            this.notyfService.showNotyf("error", 'bad credentials');
           }
 
           return throwError("Unknown Error");

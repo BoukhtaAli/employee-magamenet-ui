@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
-import {HttpClient, HttpHeaders} from "@angular/common/http";
-import {Observable} from "rxjs";
+import {HttpClient, HttpResponse} from "@angular/common/http";
+import {NotyfService} from "../notyf/notyf.service";
+import {Router} from "@angular/router";
 
 @Injectable({
   providedIn: 'root'
@@ -8,12 +9,22 @@ import {Observable} from "rxjs";
 export class AuthenticationService {
 
   baseUrl : string = "http://localhost:6060";
-  headers : HttpHeaders  = new HttpHeaders();
 
-  constructor(private httpClient : HttpClient) { }
+  constructor(private httpClient : HttpClient, private notyfService: NotyfService, private router: Router) { }
 
-  authenticate(login: any) : Observable<any> {
-    return this.httpClient.post<any>(`${this.baseUrl}`+"/login", login,{headers: this.headers});
+  authenticate(login: any) {
+
+    this.httpClient.post<any>(`${this.baseUrl}`+"/login", login, {observe: 'response'}).subscribe(
+      (response: HttpResponse<any>) => {
+
+        console.log(response);
+
+        this.setData(response.body.user.roles, response.body.user.username, response.body.accessToken);
+
+        this.router.navigate(["/"]);
+        this.notyfService.showNotyf("success", "Login Success!");
+      }
+    );
   }
 
   isUserLoggedIn(): boolean {
